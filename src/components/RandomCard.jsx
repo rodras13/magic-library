@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { MagicCards } from "./MagicCards.jsx"
 
-import { useRandomCard } from "./hooks/useRandomCard.js"
+import { useRandomCard } from "../hooks/useRandomCard.js"
 
 export function RandomCard() {
   // Estado para cambiar la imagen

@@ -1,5 +1,4 @@
 export function MagicCards({ name, imageUri, description, quantity }) {
-  console.log("render")
   return (
     <ul className="mtg-cards">
       <li className="mtg-card">

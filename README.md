@@ -21,7 +21,7 @@ Pasos a realizar:
   ⚠️ Cuidado con el parámetro quantity de la DB
 2. Crear el esqueleto de la página
   - Sección de Biblioteca:
-    - Buscar
+    - Buscar ✅
       - Buscador de cartas en la DB
       - Filtros de búsqueda
     - Añadir una o varias cartas

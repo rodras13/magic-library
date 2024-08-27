@@ -1,9 +1,7 @@
 import "./App.css"
 import { useSearchedCard } from "./hooks/useSearchedCard"
 import { useCard } from "./hooks/useCard"
-import { MagicCards } from "./MagicCards"
-import { RandomCard } from "./RandomCard.jsx"
-
+import { MagicCards } from "./components/MagicCards.jsx"
 
 export function App() {
 
@@ -58,7 +56,6 @@ export function App() {
       </aside >
 
       <main>
-        <RandomCard />
         <article>
           {cardSearched &&
             <MagicCards
@@ -66,7 +63,8 @@ export function App() {
               name={cardSearched.name}
               imageUri={cardSearched.image}
               description={cardSearched.description}
-            />}
+            />
+          }
         </article>
       </main>
     </>

@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react"
+import { useState, useRef } from "react"
 import { mappedCard } from "../services/mappedCard"
+import cardNotFound from "../mocks/error-search.json"
 
 export function useCard({printedName}) {
   
   // Creamos un estado para la carta que se va a buscar
   const [cardSearched, setCardSearched] = useState()
+
+  // Guardamos la referencia del estado anterior para que no realice la misma búsqueda 
+  const previousCard = useRef(printedName)
   
   // Convierte la consulta en un nombre procesable por el endpoint de búsqueda
   const cardQuery = printedName.split(" ").join("+")
@@ -12,13 +16,27 @@ export function useCard({printedName}) {
   const CARD_SEARCH_ENDPOINT = `https://api.scryfall.com/cards/named?fuzzy=${cardQuery}`
 
   // Función que obtiene una carta aleatoria de la API
-  const getSearchedCard = () => {
-    fetch(CARD_SEARCH_ENDPOINT)
-      .then(res => res.json())
-      .then(data => {
-        const newSearchedCard = mappedCard(data)
+  const getSearchedCard = async () => {
+    // No se hace la búsqueda si es la misma query
+    if(printedName === previousCard.current) return
+
+    if(printedName) {
+      try{
+        const res = await fetch(CARD_SEARCH_ENDPOINT)
+        if (!res.ok) {
+          throw new Error(`Se ha producido un error: ${res.status}`)
+        }
+        const data = await res.json()
+        previousCard.current = printedName
+        const newSearchedCard = await mappedCard(data)
         setCardSearched(newSearchedCard)
-      })
+      } catch(error) {
+        setCardSearched(cardNotFound)
+      }
+    } else {
+      setCardSearched()
+    }
+    
   }
 
   return { cardSearched, getSearchedCard }

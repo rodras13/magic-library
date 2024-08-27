@@ -1,8 +1,7 @@
-import { useState } from "react"
-import { MagicCards } from "./MagicCards.jsx"
+import { MagicCards } from "../components/MagicCards.jsx"
 
-import { useCard } from "./hooks/useCard.js"
-import { useSearchedCard } from "./hooks/useSearchedCard.js"
+import { useCard } from "../hooks/useCard.js"
+import { useSearchedCard } from "../hooks/useSearchedCard.js"
 
 export function SearchedCard() {
 
