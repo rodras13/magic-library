@@ -1,0 +1,7 @@
+{
+  "object": "error",
+  "code": "not_found",
+  "type": "ambiguous",
+  "status": 404,
+  "details": "Too many cards match ambiguous name “hola”. Add more words to refine your search."
+}
