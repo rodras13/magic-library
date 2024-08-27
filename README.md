@@ -1,4 +1,4 @@
-# Proyecto Magic Library - R. Koscinski
+# Proyecto Magic Library 
 
 Con esta aplicación podrás tener un registro de las cartas Magic: The Gathering que están en tu poder
 y consultar en todo momento cual es su precio mínimo en el mercado.
