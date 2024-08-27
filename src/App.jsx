@@ -1,33 +1,14 @@
 import "./App.css"
-import { useState } from "react"
-import { MagicCard } from "./MagicCard"
 
-import { useRandomCard } from "./hooks/useRandomCard.js"
-
-const CARD_SEARCH_ENDPOINT = `https://api.scryfall.com/cards/named?fuzzy=nada+se+desperdicia`
+import { CardFilter } from "./CardFilter.jsx"
+import { RandomCard } from "./RandomCard.jsx"
 
 export function App() {
-  // Estado para cambiar la imagen
-  const [change, setChange] = useState(false)
-
-  // Uso del CustomHook para resetear la imagen
-  const { card } = useRandomCard({ change })
-
-  const handleClick = () => {
-    setChange(!change)
-  }
-
   return (
     <>
+      <CardFilter />
       <main>
-        {card &&
-          <MagicCard
-            key={card.id}
-            name={card.name}
-            imageUri={card.image}
-            description={card.description}
-          />}
-        <button onClick={handleClick}>Cambiar</button>
+        <RandomCard />
       </main>
     </>
   )

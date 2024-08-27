@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getRandomCard } from "../services/mappedCard"
+import { getRandomCard } from "../services/getRandomCard"
 
 // 🎁 Recibe el estado change que indica si debe cambiar o no
 export function useRandomCard({change}){
