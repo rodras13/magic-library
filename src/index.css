@@ -19,21 +19,11 @@
 }
 
 #root {
-  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
   width: 100%;
 }
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 
 button {
   border-radius: 8px;
@@ -56,7 +46,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+h2 {
+  font-weight: bold;
+  font-size: large;
+  border: #646cff;
 }

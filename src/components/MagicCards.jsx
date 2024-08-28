@@ -2,7 +2,7 @@ import axios from "axios"
 
 export function MagicCards({ id, name, imageUri, description, quantity }) {
 
-  const URI = `http://localhost:5000/cards/`
+  const URI = import.meta.env.VITE_BACKEND_URL
 
   const registerCard = async (id, name, imageUri, description) => {
     console.log({
@@ -22,7 +22,8 @@ export function MagicCards({ id, name, imageUri, description, quantity }) {
   }
 
   return (
-    <li className="mtg-card">
+    <li className="w-[400px] list-none">
+      <button onClick={() => registerCard(id, name, imageUri, description)}>Añadir</button>
       <section>
         <h2>{name}</h2>
         <p>{quantity}</p>
@@ -31,7 +32,6 @@ export function MagicCards({ id, name, imageUri, description, quantity }) {
           alt={description}
         />
       </section>
-      <button onClick={() => registerCard(id, name, imageUri, description)}>Añadir</button>
     </li>
   )
 }

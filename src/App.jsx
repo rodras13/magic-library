@@ -1,27 +1,30 @@
-import "./App.css"
-import { useSearchedCard } from "./hooks/useSearchedCard"
-import { useCard } from "./hooks/useCard"
-import { MagicCards } from "./components/MagicCards.jsx"
 import { ShowLibrary } from "./library/ShowLibrary.jsx"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { RandomCard } from "./components/RandomCard.jsx"
 import { SearchedCard } from "./components/SearchedCard.jsx"
+import { useState } from "react"
 
 export function App() {
 
+  const [random, setRandom] = useState(false)
 
+  const handleclick = () => {
+    setRandom(!random)
+  }
 
   return (
     <>
-      <header>
-        <h1>Magic Library</h1>
-        <p>Tu propia Biblioteca online</p>
+      <header >
+        <h1 className="font-bold text-2xl">Magic Library</h1>
+        <p className="text-2x2">Tu propia Biblioteca online</p>
       </header>
 
-      <main>
+      <main className="w-full flex flex-row gap-10 justify-between">
         <SearchedCard />
         <ShowLibrary />
-        <RandomCard />
+        <article>
+          <button onClick={handleclick}>Carta aleatoria</button>
+          {random && <RandomCard />}
+        </article>
       </main>
     </>
   )

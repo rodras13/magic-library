@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import axios from "axios"
 import { mappedDBCards } from "../services/mappedCard"
 
 export function useDBCard(){
 
-  const URI = `http://localhost:5000/cards/`
+  const URI = import.meta.env.VITE_BACKEND_URL
   const [cards, setCards] = useState([])
 
   const refreshCards = () => {

@@ -1,4 +1,4 @@
-// Aquí es donde se procesan los mapeados para la base de datos
+// 📚 TODO: Aquí es donde se procesan los mapeados para la base de datos, futura implementacion
 export function mappedDBCard(data, quantity){
   return {
     id: data.id,

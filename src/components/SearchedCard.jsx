@@ -1,7 +1,6 @@
-import { MagicCards } from "../components/MagicCards.jsx"
-
 import { useCard } from "../hooks/useCard.js"
 import { useSearchedCard } from "../hooks/useSearchedCard.js"
+import { MagicCards } from "../components/MagicCards.jsx"
 
 export function SearchedCard() {
 
