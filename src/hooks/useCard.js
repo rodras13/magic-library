@@ -1,11 +1,13 @@
 import { useState, useRef } from "react"
 import { mappedCard } from "../services/mappedCard"
 import cardNotFound from "../mocks/error-search.json"
+import { mappedDBCard } from "../services/mappedDBcard"
 
 export function useCard({printedName}) {
   
   // Creamos un estado para la carta que se va a buscar
   const [cardSearched, setCardSearched] = useState()
+  const [cardDB, setCardDb] = useState()
 
   // Guardamos la referencia del estado anterior para que no realice la misma búsqueda 
   const previousCard = useRef(printedName)
@@ -28,8 +30,15 @@ export function useCard({printedName}) {
         }
         const data = await res.json()
         previousCard.current = printedName
+
+        // Aquí guardamos la carta que se muestra
         const newSearchedCard = await mappedCard(data)
         setCardSearched(newSearchedCard)
+
+        // Y aquí guardamos la carta que va a la base de datos
+        const newSearchedCardDB = await mappedDBCard(data)
+        setCardDb(newSearchedCardDB)
+
       } catch(error) {
         setCardSearched(cardNotFound)
       }

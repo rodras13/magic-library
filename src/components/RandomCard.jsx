@@ -19,6 +19,7 @@ export function RandomCard() {
       {card &&
         <MagicCards
           key={card.id}
+          id={card.id}
           name={card.name}
           imageUri={card.image}
           description={card.description}

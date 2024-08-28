@@ -2,15 +2,24 @@ import "./App.css"
 import { useSearchedCard } from "./hooks/useSearchedCard"
 import { useCard } from "./hooks/useCard"
 import { MagicCards } from "./components/MagicCards.jsx"
+import { ShowLibrary } from "./library/ShowLibrary.jsx"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { RandomCard } from "./components/RandomCard.jsx"
 
 export function App() {
 
   const { printedName, setPrintedName, error } = useSearchedCard()
-  const { cardSearched, getSearchedCard } = useCard({ printedName })
+  const { cardSearched, getSearchedCard, cardDB } = useCard({ printedName })
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    getSearchedCard()
+    try {
+      getSearchedCard()
+    } catch (error) {
+      console.log("Error")
+    } finally {
+      return
+    }
   }
 
   const handleChange = (event) => {
@@ -19,38 +28,16 @@ export function App() {
 
   return (
     <>
+      <header>
+        <h1>Magic Library</h1>
+        <p>Tu propia Biblioteca online</p>
+      </header>
       <aside>
         <h2>Buscador de cartas</h2>
 
         <form className="mtg-form" onSubmit={handleSubmit}>
           <input onChange={handleChange} value={printedName} name="printedName" placeholder="Jace Beleren..." />
-
-          <h2>Filtros</h2>
-
-          <select name="colors">
-            <option value="">Color</option>
-            <option value="W">Blanco</option>
-            <option value="U">Azul</option>
-            <option value="B">Negro</option>
-            <option value="R">Rojo</option>
-            <option value="G">Verde</option>
-            <option value="C">Incoloro</option>
-          </select>
-
-          <select name="typeLine">
-            <option value="">Tipo</option>
-            <option value="Creature">Criatura</option>
-            <option value="Enchantment">Encantamiento</option>
-            <option value="Socercy">Conjuro</option>
-            <option value="Instant">Instantáneo</option>
-            <option value="Artifact">Artefacto</option>
-            <option value="Land">Tierra</option>
-            <option value="Planeswalker">Planeswalker</option>
-          </select>
-
           <button>Buscar</button>
-
-          {error && <p>{error}</p>}
         </form>
 
       </aside >
@@ -66,6 +53,8 @@ export function App() {
             />
           }
         </article>
+        <ShowLibrary />
+        <RandomCard />
       </main>
     </>
   )

@@ -15,6 +15,6 @@ export function useRandomCard({change}){
     if (!card) return
     getRandomCard().then(newCard => setCard(newCard))
   }, [change])
-
+  console.log(card)
   return {card}
 } // 📰 CONTRATO: Devolver siempre el objeto carta random
