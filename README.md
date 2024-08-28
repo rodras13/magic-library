@@ -24,12 +24,12 @@ Pasos a realizar:
     - Buscar ✅
       - Buscador de cartas en la DB
       - Filtros de búsqueda
-    - Añadir una o varias cartas
-    - Borrar una o varias cartas
+    - Añadir una o varias cartas ✅
+    - Borrar una o varias cartas ✅
   - Sección Tu Tienda:
     - Buscador
     - Top Sellers
   - Index:
     - Añadidos recientemente
-3. Hacer los estilos (básicos)
-4. Crear la lógica de la aplicación
+3. Hacer los estilos (básicos) ✅
+4. Crear la lógica de la aplicación ✅

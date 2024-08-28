@@ -5,14 +5,20 @@ export function MagicCards({ id, name, imageUri, description, quantity }) {
   const URI = `http://localhost:5000/cards/`
 
   const registerCard = async (id, name, imageUri, description) => {
-    // card.preventDefault()
-    await axios.post(URI, {
+    console.log({
       id: id,
       original_name: "",
       printed_name: name,
       image_uri: imageUri,
       oracle_text: description
     })
+    await axios.post(URI, {
+      id: id,
+      original_name: "",
+      printed_name: name,
+      image_uri: imageUri,
+      oracle_text: description
+    }).catch((err) => console.error(err))
   }
 
   return (
