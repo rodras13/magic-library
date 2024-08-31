@@ -12,10 +12,10 @@ export function App() {
   }
 
   return (
-    <>
+    <div id="container" className="container mx-auto">
       <header >
         <h1 className="font-bold text-2xl">Magic Library</h1>
-        <p className="text-2x2">Tu propia Biblioteca online</p>
+        <p className="text-2x2">Tu propia Biblioteca de Magic: The Gathering online</p>
       </header>
 
       <main className="w-full flex flex-row gap-10 justify-between">
@@ -26,6 +26,6 @@ export function App() {
           {random && <RandomCard />}
         </article>
       </main>
-    </>
+    </div>
   )
 }
